@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class SQLHelper {
+
     static String url = getUrl();
     static String user = "app";
     static String password = "pass";
@@ -57,16 +58,14 @@ public class SQLHelper {
         val runner = new QueryRunner();
 
         Timestamp createdOrderStatus;
-        String createdOrderStatusSQL;
         try (
                 val conn = DriverManager.getConnection(
                         url, user, password
                 );
         ) {
             createdOrderStatus = runner.query(conn, statusSQL, new ScalarHandler<>());
-            createdOrderStatusSQL = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(createdOrderStatus);
         }
-        return createdOrderStatusSQL;
+        return String.valueOf(createdOrderStatus);
     }
 
     public static String getCreatedPaymentStatus () throws SQLException {
@@ -75,16 +74,14 @@ public class SQLHelper {
         val runner = new QueryRunner();
 
         Timestamp createdPaymentStatus;
-        String createdPaymentStatusSQL;
         try (
                 val conn = DriverManager.getConnection(
                         url, user, password
                 );
         ) {
             createdPaymentStatus = runner.query(conn, statusSQL, new ScalarHandler<>());
-            createdPaymentStatusSQL = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(createdPaymentStatus);
         }
-        return createdPaymentStatusSQL;
+        return String.valueOf(createdPaymentStatus);
     }
 
     public static String getCreatedRequestStatus () throws SQLException {
@@ -93,16 +90,14 @@ public class SQLHelper {
         val runner = new QueryRunner();
 
         Timestamp createdRequestStatus;
-        String createdRequestStatusSQL;
         try (
                 val conn = DriverManager.getConnection(
                         url, user, password
                 );
         ) {
             createdRequestStatus = runner.query(conn, statusSQL, new ScalarHandler<>());
-            createdRequestStatusSQL = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(createdRequestStatus);
         }
-        return createdRequestStatusSQL;
+        return String.valueOf(createdRequestStatus);
     }
 
     public static void cleanDB () throws SQLException {

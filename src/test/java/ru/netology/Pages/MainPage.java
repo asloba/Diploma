@@ -30,10 +30,10 @@ public class MainPage {
     }
 
     public void checkIfTransactionWasApproved () {
-        approveMessage.shouldBe(visible, Duration.ofSeconds(100));
+        approveMessage.shouldBe(visible, Duration.ofSeconds(30));
     }
 
     public void checkIfTransactionWasDeclined () {
-        declineMessage.shouldBe(visible, Duration.ofSeconds(100));
+        declineMessage.shouldBe(visible, Duration.ofSeconds(30));
     }
 }
