@@ -37,5 +37,5 @@ ___
   `java -jar ./artifacts/aqa-shop.jar`
 * В новой вкладке терминала запустить автотесты командой  
   `./gradlew clean test`
-* * Cгенерировать отчёт Allure командой
+*  Cгенерировать отчёт Allure командой
     `./gradlew allureServe`
